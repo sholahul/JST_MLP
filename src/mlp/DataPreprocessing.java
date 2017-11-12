@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static javax.swing.text.html.HTML.Tag.SELECT;
 
 /**
  *
@@ -23,13 +22,23 @@ public class DataPreprocessing {
  
     private final FileManager mFileManager; //membuat file manager library java dan menciptakan variable mfilemanager
     private final DatabaseManager mDatabaseManager; //membuat database manager
+    private float[][] input;
+    private float[]target;
     
     //konstruktor
     public DataPreprocessing() {
         mDatabaseManager = new DatabaseManager("localhost", "root", "", "heart_disease"); //(namadatabase server,password,,namadatabase
         mFileManager = new FileManager();
     }
-
+    
+    public float[][]get_input(){
+        normalizedb();
+        return input = mDatabaseManager.get_input();
+        
+    }
+    public float[]get_target(){
+        return target = mDatabaseManager.get_target();
+    }
     public void Load(String filename) { //prosedur meload dengan parameter namafile direktori
         try {
             /*
@@ -75,7 +84,7 @@ public class DataPreprocessing {
     public void normalizedb()
     {
         mDatabaseManager.normalizedatabase("raw_patient");
-        mDatabaseManager.cetaki();
+//        mDatabaseManager.cetaki();
     }
     
 }
