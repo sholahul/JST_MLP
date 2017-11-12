@@ -70,13 +70,12 @@ public class DataPreprocessing {
     public void opendatabase() 
     {
        mDatabaseManager.open("raw_patient");
-       
     }
     
     public void normalizedb()
     {
         mDatabaseManager.normalizedatabase("raw_patient");
- 
+        mDatabaseManager.cetaki();
     }
     
 }
