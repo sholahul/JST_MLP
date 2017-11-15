@@ -5,7 +5,10 @@
         <group>
             <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/MLP.java</file>
             <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/DatabaseManager.java</file>
+            <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/dataset.txt</file>
             <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/DataPreprocessing.java</file>
+            <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/ProsesBP.java</file>
+            <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/Backpropagation.java</file>
         </group>
     </open-files>
 </project-private>

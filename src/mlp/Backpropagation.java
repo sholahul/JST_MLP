@@ -16,7 +16,7 @@ class Backpropagation {
     final int randomWeightMultiplier = 1;
     
     public int init_hidden = 4;
-    public int init_output =2;
+    public int init_output =1;
     public int init_input = 303;
     int init_maxloop = 1000;
     float input[][] = new float[init_input][13];
