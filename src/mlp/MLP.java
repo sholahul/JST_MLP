@@ -11,7 +11,7 @@ import java.sql.Connection;
  *
  * @author Ayu Lestari
  */
-public class MLP {
+public class MLP { //kelas utama
 
     public static Connection conn;
     
@@ -20,6 +20,25 @@ public class MLP {
         //preprocessor.Load("C:\\xampp\\htdocs\\JST_MLP\\src\\mlp\\dataset.txt");
         preprocessor.opendatabase();
         preprocessor.normalizedb();
+        
+        ProsesBP PB = new ProsesBP();
+        System.out.println("\nData proses");
+        PB.cetak_input();
+        System.out.println("\nData Target");
+        PB.cetak_target();
+        
+        System.out.println("\nBobot dari input ke hidden secara random");
+        PB.cetak_bobot_input_to_hidden();
+        
+        System.out.println("\nBobot hidden ke output secara random");
+        PB.cetak_bobot_hidden_to_output();
+        
+        System.out.println("\nBobot dari bias ke hidden secara random");
+        PB.cetak_bobot_bias_to_hidden();
+        
+        System.out.println("\nBobot dari bias ke output secara random");
+        PB.cetak_bobot_bias_to_output();
+        
     }
     
 }
