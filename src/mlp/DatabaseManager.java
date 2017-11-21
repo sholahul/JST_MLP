@@ -144,6 +144,7 @@ public class DatabaseManager {
                 input[i][11]= ca;
                 input[i][12]= thal;
                
+                // Normalisasi Target, jika target lebih besar dari 0 maka target 1 dan jika kurang dari atau sama dengan 0 maka target 0
                 i++;
                 if(num>0){
                     num = 1;
