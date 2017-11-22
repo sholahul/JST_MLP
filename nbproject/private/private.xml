@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group/>
-=======
-        <group>
-            <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/MLP.java</file>
-            <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/BackpropagationNetwork.java</file>
-            <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/DatabaseManager.java</file>
-            <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/dataset.txt</file>
-            <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/DataPreprocessing.java</file>
-        </group>
->>>>>>> 8a4d726b293ea4dbd05dd913cf9c285deeb240cc
     </open-files>
 </project-private>
