@@ -69,6 +69,8 @@ public class DataPreprocessing {
                 row.put("ca", "'" + attr[11] + "'");
                 row.put("thal", "'" + attr[12] + "'");
                 row.put("num", "'" + attr[13] + "'");
+                
+                //double x = Double.parseDouble("2.0");
                 mDatabaseManager.Insert("raw_patient", row);
             }
         } catch (IOException ex) {
