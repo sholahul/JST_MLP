@@ -45,36 +45,29 @@ public class MLP { //kelas utama
         
         
 
-/*
-    clue enum
-    
-
-*/
-        System.out.println(1 % 5);
-
-// Contoh perhitungan tugas Backprop kemaren
-//        double[][] input = { // coba inisialisasi
-//            {1, 0},
-//            {0, 1},
-//            {1, 0},
-//            {1, 1}
-//        };
-//        
-//        double[] targets = {0, 1, 1, 0}; // target harus diinput untuk menghitung MSE dan error
-//        
-//        BackpropagationNetwork bp = new BackpropagationNetwork(2, 1, 1, 0.01, 0.41); // buat objek backprop
-//        
-//        bp.train(input, targets); // coba training
-//        
-//        // menghitung akurasi = (jumlah benar/jumlah data)*100%
-//        int jumlah_benar = 0; 
-//        for (int i = 0; i < input.length; i++)
-//        {
-//            System.out.println(bp.test(input[i]));
-//            if (bp.test(input[i]) == targets[i]) jumlah_benar++;
-//        }
-//        
-//        System.out.println("Akurasi: "  + ((float)jumlah_benar / (float)input.length) * 100 + "%");     
+        //Contoh perhitungan tugas Backprop kemaren
+        double[][] input = { // coba inisialisasi
+            {1, 0},
+            {0, 1},
+            {1, 0},
+            {1, 1}
+        };
+        
+        double[] targets = {0, 1, 1, 0}; // target harus diinput untuk menghitung MSE dan error
+        
+        BackpropagationNetwork bp = new BackpropagationNetwork(2, 1, 1, 0.01, 0.41); // buat objek backprop
+        
+        bp.train(input, targets); // coba training
+        
+        // menghitung akurasi = (jumlah benar/jumlah data)*100%
+        int jumlah_benar = 0; 
+        for (int i = 0; i < input.length; i++)
+        {
+            System.out.println(bp.test(input[i]));
+            if (bp.test(input[i]) == targets[i]) jumlah_benar++;
+        }
+        
+        System.out.println("Akurasi: "  + ((float)jumlah_benar / (float)input.length) * 100 + "%");     
 
     }
     

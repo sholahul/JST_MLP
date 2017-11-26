@@ -106,7 +106,7 @@ public class BackpropagationNetwork {
             
             // misalkan ada 5 data 
             // 
-//            i = (i + 1) % data.length;
+            // i = (i + 1) % data.length;
             i++;
             i = i % data.length;
         }
