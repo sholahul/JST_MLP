@@ -45,8 +45,7 @@ public class MLP { //kelas utama
         
         
 
-
-// Contoh perhitungan tugas Backprop kemaren
+        //Contoh perhitungan tugas Backprop kemaren
         double[][] input = { // coba inisialisasi
             {1, 0},
             {0, 1},
