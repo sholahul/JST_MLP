@@ -104,8 +104,33 @@ public class BackpropagationNetwork {
             System.out.println(who[1][0]);
             System.out.println("-------------------");
             
-            // untuk menghentikan looping
-            i = (i + 1) % data.length;
+            // misalkan ada 5 data 
+            // 
+//            i = (i + 1) % data.length;
+            i++;
+            i = i % data.length;
+        }
+        
+        
+    }
+    
+    public void simpanBobot() {
+        for (int i = 0; i < wih.length; i++) {
+            for (int j = 0; j < wih[i].length; j++) {
+                //wih[i][j];
+                // input_hidden
+                // i
+                // j
+            }
+        }
+        
+        for (int i = 0; i < who.length; i++) {
+            for (int j = 0; j < who[i].length; j++) {
+                //who[i][j];
+                // hidden_output
+                // i
+                // j
+            }
         }
     }
     

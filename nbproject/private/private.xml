@@ -5,12 +5,6 @@
         <group>
             <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/MLP.java</file>
             <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/BackpropagationNetwork.java</file>
-<<<<<<< HEAD
-=======
-            <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/DatabaseManager.java</file>
-            <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/dataset.txt</file>
-            <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/DataPreprocessing.java</file>
->>>>>>> bb6550f477225636f761ff9d1e72955a98ffb87b
         </group>
     </open-files>
 </project-private>
