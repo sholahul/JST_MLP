@@ -25,8 +25,10 @@ import java.util.logging.Logger;
  * @author Ayu Lestari
  */
 public class DatabaseManager {
+
     public double input[][] = new double[304][14];
     public double target[]=new double[304];
+
     
     public Connection conn;
     

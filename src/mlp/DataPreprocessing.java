@@ -80,7 +80,12 @@ public class DataPreprocessing {
     
     public void opendatabase() 
     {
+
+       mDatabaseManager.open("raw_patient");
+       
+
        mDatabaseManager.open("preprocess_data");
+
     }
     
     public void normalizedb()
