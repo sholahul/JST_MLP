@@ -22,8 +22,8 @@ public class DataPreprocessing {
  
     private final FileManager mFileManager; //membuat file manager library java dan menciptakan variable mfilemanager
     private final DatabaseManager mDatabaseManager; //membuat database manager
-    private float[][] input;
-    private float[]target;
+    private double[][] input;
+    private double[]target;
     
     //konstruktor
     public DataPreprocessing() {
@@ -31,12 +31,12 @@ public class DataPreprocessing {
         mFileManager = new FileManager();
     }
     
-    public float[][]get_input(){
+    public double[][]get_input(){
         normalizedb();
         return input = mDatabaseManager.get_input();
         
     }
-    public float[]get_target(){
+    public double[]get_target(){
         return target = mDatabaseManager.get_target();
     }
     public void Load(String filename) { //prosedur meload dengan parameter namafile direktori
@@ -71,7 +71,7 @@ public class DataPreprocessing {
                 row.put("num", "'" + attr[13] + "'");
                 
                 //double x = Double.parseDouble("2.0");
-                mDatabaseManager.Insert("raw_patient", row);
+                mDatabaseManager.Insert("data_latih_patient", row);
             }
         } catch (IOException ex) {
             Logger.getLogger(DataPreprocessing.class.getName()).log(Level.SEVERE, null, ex);
@@ -80,13 +80,14 @@ public class DataPreprocessing {
     
     public void opendatabase() 
     {
-       mDatabaseManager.open("raw_patient");
+       mDatabaseManager.open("preprocess_data");
     }
     
     public void normalizedb()
     {
-        mDatabaseManager.normalizedatabase("raw_patient");
-//        mDatabaseManager.cetaki();
+        mDatabaseManager.normalizedatabase("data_latih_patient");
+        
+       
     }
     
 }
