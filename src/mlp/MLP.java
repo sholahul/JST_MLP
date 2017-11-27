@@ -22,21 +22,21 @@ public class MLP { //kelas utama
     public static void main(String[] args) throws ClassNotFoundException {
         DataPreprocessing preprocessor = new DataPreprocessing(); //create object preprocessor
 //        preprocessor.Load("C:\\xampp\\htdocs\\JST_MLP\\src\\mlp\\dataset.txt");
-        preprocessor.normalizedb();
+         preprocessor.normalizedb();
 //          preprocessor.opendatabase();
           
           double[][]input = new double[304][14];
           double[]target ;
-          input = preprocessor.get_input();
-//          target = preprocessor.get_target();
-          
-          for(int i=0;i<304;i++){
-              for(int j=0;j<14;i++)
-              {
-                  System.out.println(input[i][j]);
-              }
-              System.out.println("");
-          }
+//          input = preprocessor.get_input();
+////          target = preprocessor.get_target();
+//          
+//          for(int i=0;i<304;i++){
+//              for(int j=0;j<14;i++)
+//              {
+//                  System.out.println(input[i][j]);
+//              }
+//              System.out.println("");
+//          }
           
 //        System.out.println("\nBobot dari input ke hidden secara random");
 //        PB.cetak_bobot_input_to_hidden();
