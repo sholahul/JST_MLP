@@ -18,7 +18,7 @@ public class ProsesBP{ //class untuk memproses keluaran nilai
     public int i_output;
     public float w_bias_to_hidden[];
     public float w_bias_to_output[];
-            
+    /*        
     public ProsesBP() {
        DataPreprocessing dp = new DataPreprocessing(); 
        input = dp.get_input(); //mendapatkan input dari dataprepocessing
@@ -89,5 +89,5 @@ public class ProsesBP{ //class untuk memproses keluaran nilai
     }
     
     
-    
+    */
 }

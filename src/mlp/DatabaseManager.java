@@ -23,8 +23,8 @@ import java.util.logging.Logger;
  * @author Ayu Lestari
  */
 public class DatabaseManager {
-    public float input[][] = new float[304][14];
-    public float target[]=new float[304];
+    float input[][] = new float[304][14];
+    float target[]=new float[304];
     
     public Connection conn;
     

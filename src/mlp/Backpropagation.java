@@ -15,15 +15,15 @@ class Backpropagation {
     final float Learning_rate = 0.5f;
     final int randomWeightMultiplier = 1;
     
-    public int init_hidden = 4;
-    public int init_output =2;
-    public int init_input = 303;
+    public int init_hidden = 1;
+    public int init_output = 1;
+    public int init_input = 13;
     int init_maxloop = 1000;
-    float input[][] = new float[init_input][13];
+    float input [] = new float[init_input];
     float target[] = new float[init_input];
     
-    float[][] set_bobot_input_to_hidden = new float[304][13];
-    float[][] set_bobot_hidden_to_output = new float[init_hidden][init_output];
+    float[] set_bobot_input_to_hidden = new float[13];
+    float[] set_bobot_hidden_to_output = new float[1];
     
     float set_bobot_bias_to_hidden[] = new float[init_hidden];
     float set_bobot_bias_to_output[] = new float[init_output];
@@ -35,16 +35,20 @@ langkah 2 sampai dengan 8.
 • Langkah 2: Untuk setiap pasang data pelatihan, lakukan
 langkah 3 sampai dengan 8
     */
-    public Backpropagation(float inputlayer[][],float layertarget[]) {
+    public Backpropagation(float inputlayer[],float layertarget[]) {
         input = inputlayer;
         target = layertarget;
     }
 
-    public float[][] getbih(){
+    Backpropagation(float[][] input, float[] target) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public float[] getbih(){
         initializeweigth();
         return set_bobot_input_to_hidden;
     }
-    public float[][] getbho(){
+    public float[] getbho(){
         initializeweigth();
         return set_bobot_input_to_hidden;
     }
@@ -60,19 +64,13 @@ langkah 3 sampai dengan 8
         //mendapatkan nilai random dari input ke hidden
         for(i=0;i<init_input;i++)
         {
-            for(j=0;j<13;j++)
-            {
-                set_bobot_input_to_hidden[i][j] = (float) (Math.random()*2);
-            }
+            set_bobot_input_to_hidden[i] = (float) (Math.random()*2);
         }
         
         //mendapatkan nilai random dari hidden ke output
         for(i=0;i<init_hidden;i++)
         {
-            for(j=0;j<init_output;j++)
-            {
-                set_bobot_hidden_to_output[i][j] = (float) (Math.random()*2);
-            }       
+            set_bobot_hidden_to_output[i]= (float) (Math.random()*2);
         }
         
         for(i=0;i<init_hidden;i++)
@@ -114,7 +112,7 @@ langkah 3 sampai dengan 8
     public void Hitung_Bp(){
         float E =0;
         do{
-            E = hitung_MSE(set_bobot_bias_to_hidden,input,set_bobot_input_to_hidden);
+   //         E = hitung_MSE(set_bobot_bias_to_hidden,input,set_bobot_input_to_hidden);
         }while(E>0.01);
         
     }
