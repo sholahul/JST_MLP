@@ -7,8 +7,10 @@ package mlp;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -23,8 +25,13 @@ import java.util.logging.Logger;
  * @author Ayu Lestari
  */
 public class DatabaseManager {
+<<<<<<< HEAD
     float input[][] = new float[304][14];
     float target[]=new float[304];
+=======
+    public double input[][] = new double[304][14];
+    public double target[]=new double[304];
+>>>>>>> 142d607d54055fbc4efb901b869b4ca1eaeb18a7
     
     public Connection conn;
     
@@ -35,10 +42,28 @@ public class DatabaseManager {
             Logger.getLogger(DatabaseManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public float[][] get_input(){
+    
+    private static Connection koneksi;
+    public static Connection getKoneksi(){
+        if(koneksi == null){
+            try{
+                String url = "jdbc:mysql://localhost:3306/heart_disease";
+                String user = "root";
+                String password = "";
+                DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+                koneksi = DriverManager.getConnection(url, user, password);
+            }
+            catch(SQLException t){
+                System.out.println("Error membuat koneksi !");
+            }
+        }
+        return koneksi;
+    }
+    
+    public double[][] get_input(){
         return input;
     }
-    public float[] get_target(){
+    public double[] get_target(){
         return target;
     }
 //    public void cetaki()
@@ -70,24 +95,44 @@ public class DatabaseManager {
                 //retrieve by coloumn name
                 
                 int id = res.getInt("id_patient");
-                float age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal,num;
+                double age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal,num;
                 
-                age = res.getFloat("age");
-                sex = res.getFloat("sex");
-                cp = res.getFloat("cp");
-                trestbps = res.getFloat("trestbps");
-                chol = res.getFloat("chol");
-                fbs = res.getFloat("fbs");
-                restecg = res.getFloat("restecg");
-                thalach = res.getFloat("thalach");
-                exang = res.getFloat("exang");
-                oldpeak = res.getFloat("oldpeak");
-                slope = res.getFloat("slope");
-                ca = res.getFloat("ca");
-                thal = res.getFloat("thal");
-                num = res.getFloat("num");
+                age = res.getDouble("age");
+                sex = res.getDouble("sex");
+                cp = res.getDouble("cp");
+                trestbps = res.getDouble("trestbps");
+                chol = res.getDouble("chol");
+                fbs = res.getDouble("fbs");
+                restecg = res.getDouble("restecg");
+                thalach = res.getDouble("thalach");
+                exang = res.getDouble("exang");
+                oldpeak = res.getDouble("oldpeak");
+                slope = res.getDouble("slope");
+                ca = res.getDouble("ca");
+                thal = res.getDouble("thal");
+                num = res.getDouble("num");
                 
-
+                //get input
+                input[i][0]= age;
+                input[i][1]= sex;
+                input[i][3]= cp;
+                input[i][4]= trestbps;
+                input[i][5]= chol;
+                input[i][6]= fbs;
+                input[i][7]= thalach;
+                input[i][8]= exang;
+                input[i][9]= oldpeak;
+                input[i][10]= slope;
+                input[i][11]= ca;
+                input[i][12]= thal;
+               
+                // Normalisasi Target, jika target lebih besar dari 0 maka target 1 dan jika kurang dari atau sama dengan 0 maka target 0
+                if(num>0){
+                    num = 1;
+                }
+                //get target
+                target[i]=num;
+                i++;
                 
                 System.out.println(id+","+age+","+sex+","+cp+","+trestbps+","+chol+","+fbs+","+restecg+","+thalach+","+exang+","+oldpeak+","+slope+","+ca+","+thal+","+num);
             }
@@ -98,8 +143,7 @@ public class DatabaseManager {
     }
     
     public void normalizedatabase(String table)
-    {
-   
+    {   
         try{
             String sql = "SELECT * FROM "+table+";";
 //            System.out.println(sql);
@@ -114,49 +158,60 @@ public class DatabaseManager {
             {
                 //retrieve by coloumn name
                 int id = res.getInt("id_patient");
-                float age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal,num;
+                double age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal,num;
                 
-                age = res.getFloat("age")/77;
-                sex = res.getFloat("sex")/1;
-                cp = res.getFloat("cp")/4;
-                trestbps = res.getFloat("trestbps")/200;
-                chol = res.getFloat("chol")/564;
-                fbs = res.getFloat("fbs")/1;
-                restecg = res.getFloat("restecg")/2;
-                thalach = res.getFloat("thalach")/202;
-                exang = res.getFloat("exang")/1;
-                oldpeak = res.getFloat("oldpeak")/(float)6.2;
-                slope = res.getFloat("slope")/3;
-                ca = res.getFloat("ca")/3;
-                thal = res.getFloat("thal")/7;
-                num = res.getFloat("num")*2 /2;
-                
-                input[i][0]= age;
-                input[i][1]= sex;
-                input[i][3]= cp;
-                input[i][4]= trestbps;
-                input[i][5]= chol;
-                input[i][6]= fbs;
-                input[i][7]= thalach;
-                input[i][8]= exang;
-                input[i][9]= oldpeak;
-                input[i][10]= slope;
-                input[i][11]= ca;
-                input[i][12]= thal;
-               
-                i++;
-                if(num>0){
-                    num = 1;
+                age = res.getDouble("age")/77;
+                sex = res.getDouble("sex")/1;
+                cp = res.getDouble("cp")/4;
+                trestbps = res.getDouble("trestbps")/200;
+                chol = res.getDouble("chol")/564;
+                fbs = res.getDouble("fbs")/1;
+                restecg = res.getDouble("restecg")/2;
+                thalach = res.getDouble("thalach")/202;
+                exang = res.getDouble("exang")/1;
+                oldpeak = res.getDouble("oldpeak")/(float)6.2;
+                slope = res.getDouble("slope")/3;
+                ca = res.getDouble("ca")/3;
+                thal = res.getDouble("thal")/7;
+                num = res.getDouble("num")*2 /2;
+
+                try{
+                    Connection c = DatabaseManager.getKoneksi();
+                    String msql = "INSERT INTO preprocess_data(age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal,num) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+                    PreparedStatement p = c.prepareStatement(msql);
+
+                    for(i=0;i<304;i++){             
+                        p.setDouble(1, age);
+                        p.setDouble(2, sex);
+                        p.setDouble(3, cp);
+                        p.setDouble(4, trestbps);
+                        p.setDouble(5, chol);
+                        p.setDouble(6, fbs);
+                        p.setDouble(7, restecg);
+                        p.setDouble(8, thalach);
+                        p.setDouble(9, exang);
+                        p.setDouble(10, oldpeak);
+                        p.setDouble(11, slope);
+                        p.setDouble(12, ca);
+                        p.setDouble(13, thal);
+                        p.setDouble(14, num);
+
+                        p.executeUpdate();
+                        p.close();
+                     }
+                }catch(Exception e){
+//                    System.err.println("data error");
                 }
-                target[i]=num;
-               
-//                System.out.println(id+","+age+","+sex+","+cp+","+trestbps+","+chol+","+fbs+","+restecg+","+thalach+","+exang+","+oldpeak+","+slope+","+ca+","+thal+","+num);
+                System.out.println(id+","+age+","+sex+","+cp+","+trestbps+","+chol+","+fbs+","+restecg+","+thalach+","+exang+","+oldpeak+","+slope+","+ca+","+thal+","+num);
             }        
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseManager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
     
+   
     public void Insert(String table, Map<String, String> data) {
         Set<String> fields = data.keySet();
         Collection<String> values = data.values();
