@@ -6,6 +6,8 @@
 package mlp;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,57 +20,57 @@ import java.util.Set;
 public class MLP { //kelas utama
 
     public static Connection conn;
+    static double[][] input;
+    static double[]targets; 
     
-    public static void main(String[] args) throws ClassNotFoundException {
-//        DataPreprocessing preprocessor = new DataPreprocessing(); //create object preprocessor
-        //preprocessor.Load("C:\\xampp\\htdocs\\JST_MLP\\src\\mlp\\dataset.txt");
-//        preprocessor.opendatabase();
-//        preprocessor.normalizedb();
-//        
-//        ProsesBP PB = new ProsesBP();
-//        System.out.println("\nData proses");
-//        PB.cetak_input();
-//        System.out.println("\nData Target");
-//        PB.cetak_target();
-//        
-//        System.out.println("\nBobot dari input ke hidden secara random");
-//        PB.cetak_bobot_input_to_hidden();
-//        
-//        System.out.println("\nBobot hidden ke output secara random");
-//        PB.cetak_bobot_hidden_to_output();
-//        
-//        System.out.println("\nBobot dari bias ke hidden secara random");
-//        PB.cetak_bobot_bias_to_hidden();
-//        
-//        System.out.println("\nBobot dari bias ke output secara random");
-//        PB.cetak_bobot_bias_to_output();
-        
-        
+    static double[][]wih;
+    static double[][]who;
+    
 
-        //Contoh perhitungan tugas Backprop kemaren
-        double[][] input = { // coba inisialisasi
-            {1, 0},
-            {0, 1},
-            {1, 0},
-            {1, 1}
-        };
+    public static void main(String[] args){
+           
+        DataPreprocessing preprocessor = new DataPreprocessing(); //create object preprocessor
+//        //preprocessor.Load("C:\\xampp\\htdocs\\JST_MLP\\src\\mlp\\dataset.txt");
+////        preprocessor.opendatabase();
+            preprocessor.normalizedb();
+            input = preprocessor.get_input();
+            targets = preprocessor.get_target();
+            
+            for(int i=0;i<303;i++){
+                System.out.println("Data ke : "+(i+1));
+                for(int j=0;j<13;j++){
+                    System.out.print(input[i][j]+",");
+                }
+                System.out.println();
+            }
+            for(int i=0;i<303;i++){
+                System.out.println("Target ke : "+(i+1));
+                System.out.println(targets[i]+",");
+            }
+          
+          //input layer,ouput,hidden,learningrate,stop mse
+//            BackpropagationNetwork bp = new BackpropagationNetwork(13, 1, 1, 0.01, 36);  
+//            bp.simpanbobotlama();
+//            bp.train(input,targets);
+//            bp.simpanBobot();
+//            bp.simpanbobotbaru();
+//              
+//          
+//        Contoh perhitungan tugas Backprop kemaren
+//        double[][] input = { // coba inisialisasi
+//            {1, 0},
+//            {0, 1},
+//            {1, 0},
+//            {1, 1}
+//        };
+//        
+//        double[] targets = {0, 1, 1, 0}; // target harus diinput untuk menghitung MSE dan error
         
-        double[] targets = {0, 1, 1, 0}; // target harus diinput untuk menghitung MSE dan error
-        
-        BackpropagationNetwork bp = new BackpropagationNetwork(2, 1, 1, 0.01, 0.41); // buat objek backprop
-        
-        bp.train(input, targets); // coba training
-        
-        // menghitung akurasi = (jumlah benar/jumlah data)*100%
-        int jumlah_benar = 0; 
-        for (int i = 0; i < input.length; i++)
-        {
-            System.out.println(bp.test(input[i]));
-            if (bp.test(input[i]) == targets[i]) jumlah_benar++;
-        }
-        
-        System.out.println("Akurasi: "  + ((float)jumlah_benar / (float)input.length) * 100 + "%");     
-
+//        BackpropagationNetwork bp = new BackpropagationNetwork(2, 1, 1, 0.01, 0.41); // buat objek backprop
+//        bp.simpanbobotlt();
+//        bp.train(input, targets); // coba training
+//        bp.simpanBobot();
+//        bp.simpanbobotbt();
     }
     
 }

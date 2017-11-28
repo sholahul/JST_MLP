@@ -23,8 +23,8 @@ import java.util.logging.Logger;
  * @author Ayu Lestari
  */
 public class DatabaseManager {
-    public float input[][] = new float[304][14];
-    public float target[]=new float[304];
+    public double input[][] = new double[304][13];
+    public double target[]=new double[304];
     
     public Connection conn;
     
@@ -35,10 +35,10 @@ public class DatabaseManager {
             Logger.getLogger(DatabaseManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public float[][] get_input(){
+    public double[][] get_input(){
         return input;
     }
-    public float[] get_target(){
+    public double[] get_target(){
         return target;
     }
 //    public void cetaki()
@@ -70,24 +70,22 @@ public class DatabaseManager {
                 //retrieve by coloumn name
                 
                 int id = res.getInt("id_patient");
-                float age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal,num;
+                double age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal,num;
                 
-                age = res.getFloat("age");
-                sex = res.getFloat("sex");
-                cp = res.getFloat("cp");
-                trestbps = res.getFloat("trestbps");
-                chol = res.getFloat("chol");
-                fbs = res.getFloat("fbs");
-                restecg = res.getFloat("restecg");
-                thalach = res.getFloat("thalach");
-                exang = res.getFloat("exang");
-                oldpeak = res.getFloat("oldpeak");
-                slope = res.getFloat("slope");
-                ca = res.getFloat("ca");
-                thal = res.getFloat("thal");
-                num = res.getFloat("num");
-                
-
+                age = res.getDouble("age");
+                sex = res.getDouble("sex");
+                cp = res.getDouble("cp");
+                trestbps = res.getDouble("trestbps");
+                chol = res.getDouble("chol");
+                fbs = res.getDouble("fbs");
+                restecg = res.getDouble("restecg");
+                thalach = res.getDouble("thalach");
+                exang = res.getDouble("exang");
+                oldpeak = res.getDouble("oldpeak");
+                slope = res.getDouble("slope");
+                ca = res.getDouble("ca");
+                thal = res.getDouble("thal");
+                num = res.getDouble("num");
                 
                 System.out.println(id+","+age+","+sex+","+cp+","+trestbps+","+chol+","+fbs+","+restecg+","+thalach+","+exang+","+oldpeak+","+slope+","+ca+","+thal+","+num);
             }
@@ -114,22 +112,22 @@ public class DatabaseManager {
             {
                 //retrieve by coloumn name
                 int id = res.getInt("id_patient");
-                float age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal,num;
+                double age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal,num;
                 
-                age = res.getFloat("age")/77;
-                sex = res.getFloat("sex")/1;
-                cp = res.getFloat("cp")/4;
-                trestbps = res.getFloat("trestbps")/200;
-                chol = res.getFloat("chol")/564;
-                fbs = res.getFloat("fbs")/1;
-                restecg = res.getFloat("restecg")/2;
-                thalach = res.getFloat("thalach")/202;
-                exang = res.getFloat("exang")/1;
-                oldpeak = res.getFloat("oldpeak")/(float)6.2;
-                slope = res.getFloat("slope")/3;
-                ca = res.getFloat("ca")/3;
-                thal = res.getFloat("thal")/7;
-                num = res.getFloat("num")*2 /2;
+                age = res.getDouble("age")/77;
+                sex = res.getDouble("sex")/1;
+                cp = res.getDouble("cp")/4;
+                trestbps = res.getDouble("trestbps")/200;
+                chol = res.getDouble("chol")/564;
+                fbs = res.getDouble("fbs")/1;
+                restecg = res.getDouble("restecg")/2;
+                thalach = res.getDouble("thalach")/202;
+                exang = res.getDouble("exang")/1;
+                oldpeak = res.getDouble("oldpeak")/6.2;
+                slope = res.getDouble("slope")/3;
+                ca = res.getDouble("ca")/3;
+                thal = res.getDouble("thal")/7;
+                num = res.getDouble("num");
                 
                 input[i][0]= age;
                 input[i][1]= sex;
