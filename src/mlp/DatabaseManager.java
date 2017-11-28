@@ -100,17 +100,10 @@ public class DatabaseManager {
    
         try{
             String sql = "SELECT * FROM "+table+";";
-//            System.out.println(sql);
             Statement st = conn.createStatement();
             ResultSet res = st.executeQuery(sql);
-            
-//            System.out.println("\nHasil Normalisasi");
-//            System.out.println("id,age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal,num");
-            
             int i=0;
-            while(res.next())
-            {
-                //retrieve by coloumn name
+            while(res.next()){
                 int id = res.getInt("id_patient");
                 double age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal,num;
                 
@@ -141,15 +134,12 @@ public class DatabaseManager {
                 input[i][10]= slope;
                 input[i][11]= ca;
                 input[i][12]= thal;
-               
-                // Normalisasi Target, jika target lebih besar dari 0 maka target 1 dan jika kurang dari atau sama dengan 0 maka target 0
+                // Normalisasi Target
                 i++;
                 if(num>0){
                     num = 1;
                 }
                 target[i]=num;
-               
-//                System.out.println(id+","+age+","+sex+","+cp+","+trestbps+","+chol+","+fbs+","+restecg+","+thalach+","+exang+","+oldpeak+","+slope+","+ca+","+thal+","+num);
             }        
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseManager.class.getName()).log(Level.SEVERE, null, ex);

@@ -3,16 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/MLP.java</file>
-            <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/BackpropagationNetwork.java</file>
-            <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/FileManager.java</file>
             <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/DatabaseManager.java</file>
-            <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/Backpropagation.java</file>
-=======
-            <file>file:/C:/Users/Sholahul%20Fajri/Music/JST_MLP/src/mlp/BackpropagationNetwork.java</file>
-            <file>file:/C:/Users/Sholahul%20Fajri/Music/JST_MLP/src/mlp/DatabaseManager.java</file>
->>>>>>> 31252f6edefff2e3c57d5ea6d6fc47533dfaca72
+            <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/FileManager.java</file>
+            <file>file:/C:/xampp/htdocs/JST_MLP/src/mlp/BackpropagationNetwork.java</file>
         </group>
     </open-files>
 </project-private>

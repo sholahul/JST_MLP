@@ -50,7 +50,7 @@ public class BackpropagationNetwork {
         this.LEARNING_RATE  = lr;
         this.stopMSE        = stopMSE;
         
-        this.inputs = new double[INPUT_NEURONS]; // diinisialisasi lagi untuk membuat objek sebanyak parameternya. Misal inputs[2]
+        this.inputs = new double[INPUT_NEURONS]; 
         this.hidden = new double[HIDDEN_NEURONS];
         this.outputs = new double[OUTPUT_NEURONS];
         
@@ -105,79 +105,36 @@ public class BackpropagationNetwork {
     */
     public void train(double[][] data, double[] targets)
     {
-        
         int i = 0;
         int j = 0;
-        while (true)
-        {
-            // hitung MSE
+        while (true){
             calculateMSE(data, targets);
             System.out.print(j+" : ");
             System.out.println(MSE + " < " + stopMSE);
-            
-            // Jika MSE masih kurang dari stop MSE lakukan ...
             if (MSE < stopMSE) break;
             feedForward(data[i]);
             backPropagate(data[i], targets[i]);
-            
-//            // print perubahan bobot data ke-i
-//            
-////             misalkan ada 16 data 
-//            System.out.println(wih[0][0]);
-//            System.out.println(wih[1][0]);
-//            System.out.println(wih[2][0]);
-//            System.out.println(wih[3][0]);
-//            System.out.println(wih[4][0]);
-//            System.out.println(wih[5][0]);
-//            System.out.println(wih[6][0]);
-//            System.out.println(wih[7][0]);
-//            System.out.println(wih[8][0]);
-//            System.out.println(wih[9][0]);
-//            System.out.println(wih[10][0]);
-//            System.out.println(wih[11][0]);
-//            System.out.println(wih[12][0]);
-//            System.out.println(wih[13][0]);
-//            
-//            System.out.println(who[0][0]);
-//            System.out.println(who[1][0]);
-//            System.out.println("-------------------");
-    
              i++;
              i = i % data.length; 
              j++;
         }
-          
-            System.out.println(wih[0][0]);
-            System.out.println(wih[1][0]);
-            System.out.println(wih[2][0]);
-            System.out.println(wih[3][0]);
-            System.out.println(wih[4][0]);
-            System.out.println(wih[5][0]);
-            System.out.println(wih[6][0]);
-            System.out.println(wih[7][0]);
-            System.out.println(wih[8][0]);
-            System.out.println(wih[9][0]);
-            System.out.println(wih[10][0]);
-            System.out.println(wih[11][0]);
-            System.out.println(wih[12][0]);
-            System.out.println(wih[13][0]);
-            
-            System.out.println(who[0][0]);
-            System.out.println(who[1][0]);
-            System.out.println("-------------------");
-    
-        
-        
-//             System.out.println("");
-//            System.out.println(wih[0][0]);
-//            System.out.println(wih[1][0]);
-//            System.out.println(wih[2][0]);
-//            
-//            System.out.println(who[0][0]);
-//            System.out.println(who[1][0]);
-//            System.out.println("-------------------");
-            
-        
+        System.out.println(wih[0][0]);
+        System.out.println(wih[1][0]);
+        System.out.println(wih[2][0]);
+        System.out.println(wih[3][0]);
+        System.out.println(wih[4][0]);
+        System.out.println(wih[5][0]);
+        System.out.println(wih[6][0]);
+        System.out.println(wih[7][0]);
+        System.out.println(wih[8][0]);
+        System.out.println(wih[9][0]);
+        System.out.println(wih[10][0]);
+        System.out.println(wih[11][0]);
+        System.out.println(wih[12][0]);
+        System.out.println(wih[13][0]);
+        System.out.println(who[0][0]);
+        System.out.println(who[1][0]);
+        System.out.println("-------------------");
     }
     
     public void simpanBobot() {
@@ -443,37 +400,23 @@ public class BackpropagationNetwork {
     // Method ini digunakan untuk menghitung nilai MSE untuk setiap data
     private void calculateMSE(double[][] inputs, double[] targets)
     {
-        // lakukan feedforword khusus untuk mneghitung MSE
         this.MSE = 0.0;
-        double[] y = new double[inputs.length];  // sama saja outputnya 1 node
-        for (int i = 0; i < inputs.length; i++)
-        {
-            double sum = 0.0; // net
-            
-            double[] z = new double[HIDDEN_NEURONS]; //banyaknya hidden misalnya 1
-        
-            for (int hid = 0; hid < HIDDEN_NEURONS; hid++) 
-            {
+        double[] y = new double[inputs.length];
+        for (int i = 0; i < inputs.length; i++){
+            double sum = 0.0;
+            double[] z = new double[HIDDEN_NEURONS];
+            for (int hid = 0; hid < HIDDEN_NEURONS; hid++){
                 sum = 0.0;
-                for (int inp = 0; inp < INPUT_NEURONS; inp++) //input_neuron misalnya di contoh 13
+                for (int inp = 0; inp < INPUT_NEURONS; inp++) 
                 {
-                    if (inp < inputs[i].length) //banyaknya data di contoh 303, selagi inputan <303 karena dimulai dari 0 maka jumlahkan
-                    {
+                    if (inp < inputs[i].length) {
                         sum += inputs[i][inp] * wih[inp][hid];
-                        /*sum = sum + inputs[0][0]*wih[0][0]
-                        jadi bobot pada indeks wih[0][0] dianggap sebagai bias
-                        dimana nantinya dia akan mengalikan setiap input baris pertama dari kolom 1 sampai jumlah input,dicontoh 13 input
-                        dengan bobot setiap biasnya
-                        */
                     }
-                }
-
+                } 
                 sum += 1.0 * wih[INPUT_NEURONS][hid];
                 z[hid] = sigmoid(sum);
             }
-
-            for (int out = 0; out < OUTPUT_NEURONS; out++)
-            {
+            for (int out = 0; out < OUTPUT_NEURONS; out++){
                 sum = 0.0;
                 for (int hid = 0; hid < HIDDEN_NEURONS; hid++)
                 {
@@ -483,13 +426,8 @@ public class BackpropagationNetwork {
                 sum += 1.0 * who[HIDDEN_NEURONS][out];
                 y[i] = sigmoid(sum);
             }
-            
-            
         }
-        
-        // menjumlahkan error MSE
-        for (int i = 0; i < inputs.length; i++)
-        {
+        for (int i = 0; i < inputs.length; i++){
             this.MSE += 0.5 * Math.pow((targets[i] - y[i]), 2);
         }
     }
