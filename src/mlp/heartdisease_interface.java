@@ -329,20 +329,20 @@ public class heartdisease_interface extends javax.swing.JFrame {
             System.out.println(w[i]);
         }
         
-        double sumz =0;
-        sumz += v[0]+(input[0][0]*v[1])+(input[1][0]*v[2])+(input[2][0]*v[3])+(input[3][0]*v[4])+(input[4][0]*v[5])
+        double sumz;
+        sumz = v[0]+((input[0][0]*v[1])+(input[1][0]*v[2])+(input[2][0]*v[3])+(input[3][0]*v[4])+(input[4][0]*v[5])
                 +(input[5][0]*v[6])+(input[6][0]*v[7])+(input[7][0]*v[8])+(input[8][0]*v[9])+(input[9][0]*v[10])
-                +(input[10][0]*v[11])+(input[11][0]*v[12])+(input[12][0]*v[13]) ;
-        double sigz=0;
-        sigz += (1.0 / (1.0 + Math.exp(-sumz)));
-        z+=sigz;
+                +(input[10][0]*v[11])+(input[11][0]*v[12])+(input[12][0]*v[13])) ;
+        double sigz;
+        sigz = (1.0 / (1.0 + Math.exp(-sumz)));
+        z=sigz;
         
-        double sumy = 0; 
-        sumy +=w[0]+(z*w[1]);
-        double sigy =0;
-        sigy += (1.0 / (1.0 + Math.exp(-sumy)));
+        double sumy; 
+        sumy = w[0]+(z*w[1]);
+        double sigy;
+        sigy = (1.0 / (1.0 + Math.exp(-sumy)));
         
-        y += sigy;
+        y = sigy;
         System.out.println();
         System.out.println("Nilai y : "+y);
         
@@ -353,11 +353,12 @@ public class heartdisease_interface extends javax.swing.JFrame {
             kategori = "Sehat";
         }
         System.out.println("Kategori : "+kategori);
+        jLabel16.setText(kategori);
     }
     public void getValue(){
         double age,sex,cp,chol,trestbps,fbs,restecg,thalach,exang,
                 oldpeak,slope,ca,thal,num=0;
-        double z,y = 0;
+        
         //1
         age = (Double.parseDouble(jTextField1.getText()))/70;
        
@@ -428,11 +429,11 @@ public class heartdisease_interface extends javax.swing.JFrame {
         
         //13
         if(jComboBox8.getSelectedItem().equals("0"))
-            thal = 3/3;
+            thal = 3/7;
         else if(jComboBox7.getSelectedItem().equals("1"))
-            thal = 6/3;
+            thal = 6/7;
         else
-            thal = 7/3;
+            thal = 7/7;
         
         System.out.println(age);
         System.out.println(sex);
